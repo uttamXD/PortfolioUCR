@@ -1,31 +1,209 @@
-html {
-  font-size: 14px;
+/* ============================================================
+   site.css: the only stylesheet. No frameworks.
+   Read it top to bottom: variables, page, text, parts, forms.
+   ============================================================ */
+
+/* 1. Colours and fonts in one place. Change these to make it yours. */
+:root {
+  --paper: #fbfaf6;
+  /* background */
+  --ink: #1f1f1f;
+  /* main text */
+  --muted: #6b6b6b;
+  /* dates, small print */
+  --line: #dcd8cc;
+  /* borders */
+  --accent: #8a3b12;
+  /* links: a burnt orange-brown */
+  --text-font: Georgia, "Times New Roman", serif;
+  --code-font: Consolas, "Courier New", monospace;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
+/* 2. The page: one readable column in the middle. */
+body {
+  margin: 0 auto;
+  max-width: 66rem;
+  padding: 2rem 1.25rem 4rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--text-font);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* 3. Text */
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-top: 2.5rem;
+}
+
+h2 {
+  font-size: 1.35rem;
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.25rem;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+code,
+.tech {
+  font-family: var(--code-font);
+  font-size: 0.85em;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* 4. Header and footer */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem 1.5rem;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 0.5rem;
+}
+
+.site-name {
+  color: var(--ink);
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.site-header nav a {
+  margin-left: 1rem;
+}
+
+.site-header nav a:first-child {
+  margin-left: 0;
+}
+
+.site-footer {
+  margin-top: 4rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* 5. Project table (like a List page in Business Central) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.6rem 0.5rem 0.6rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+th {
+  font-weight: normal;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+td.year {
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* On a phone, hide the tech column so the table fits. */
+@media (max-width: 600px) {
+  .hide-on-phone {
+    display: none;
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #040509;
+    /* background */
+    --ink: #E0E0E0;
+    /* main text */
+    --muted: #949494;
+    /* dates, small print */
+    --line: #232733;
+    /* borders */
+    --accent: #75C4ED;
+    /* links: a burnt orange-brown */
+    --text-font: Georgia, "Times New Roman", serif;
+    --code-font: Consolas, "Courier New", monospace;
+  }
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+/* 6. Forms */
+label {
+  display: block;
+  margin-top: 1rem;
 }
 
-body {
-  margin-bottom: 60px;
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="number"],
+input[type="password"],
+textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  font: inherit;
+  background: white;
+  border: 1px solid var(--line);
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+textarea {
+  min-height: 10rem;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+button {
+  margin-top: 1.25rem;
+  padding: 0.5rem 1.25rem;
+  font: inherit;
+  color: var(--paper);
+  background: var(--ink);
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--accent);
+}
+
+button.link {
+  margin: 0;
+  padding: 0;
+  color: var(--accent);
+  background: none;
+  text-decoration: underline;
+}
+
+.field-error,
+.validation-summary-errors {
+  color: #b00020;
+  font-size: 0.9rem;
+}
+
+.notice {
+  border-left: 4px solid var(--accent);
+  padding-left: 1rem;
 }
