@@ -3,24 +3,47 @@
 @{
     ViewData["Title"] = "Projects";
 }
-<h1>
-    Hello, here are my project lists.
-</h1>
-<h2>Projects</h2>
-<ol type="1">
-    <li>ToDo app in Flutter
-        <dl>
-            I built a simple ToDo app using Flutter.
-        </dl>
-    </li>
-    <li>PDF Generator
-        <dl>
-            I built a web app which enabled user to create a pdf file of Governmental Documents like: Birth Certificate, TAX payment form etc. after they fill detail in the web app form.
-        </dl>
-    </li>
-    <li>MAW OTCI Integration
-        <dl>
-            I was involved in this project as technical developer, the main objective was to integrate BC and NAV to a third party app that would allow users to create Opportunity in BC and NAV which would eventually turn into a sales order.
-        </dl>
-    </li>
-</ol>
+<header class="projects-intro">
+    <p class="muted">A few things I’ve worked on</p>
+    <h1>Projects</h1>
+    <p>Projects that have helped me learn and build practical experience.</p>
+</header>
+
+<section class="project-grid" aria-label="Selected projects">
+    <article class="project-card">
+        <p class="project-type">01 · Mobile app</p>
+        <h2>ToDo app</h2>
+        <p>
+            A simple task-management app built with Flutter.
+            It helped me practise building a useful mobile interface.
+        </p>
+        <ul class="project-tags" aria-label="Technologies">
+            <li>Flutter</li>
+        </ul>
+    </article>
+
+    <article class="project-card">
+        <p class="project-type">02 · Web app</p>
+        <h2>PDF Generator</h2>
+        <p>
+            A web app for creating PDFs from forms filled in by the user,
+            including forms for government documents.
+        </p>
+        @* Add technology labels here only when you can confirm the tools used. *@
+    </article>
+
+    <article class="project-card">
+        <p class="project-type">03 · Integration</p>
+        <h2>MAW OTCI Integration</h2>
+        <p>
+            I worked on integrating Business Central and Dynamics NAV with
+            a third-party app, so users could create opportunities that
+            eventually became sales orders.
+        </p>
+        <ul class="project-tags" aria-label="Technologies">
+            <li>Business Central</li>
+            <li>Dynamics NAV</li>
+            <li>Integration</li>
+        </ul>
+    </article>
+</section>

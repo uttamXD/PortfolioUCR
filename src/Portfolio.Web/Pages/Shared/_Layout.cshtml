@@ -1,11 +1,14 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] · Portfolio</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
     <header class="site-header">
         <a class="site-name" asp-page="/Index">Portfolio</a>
@@ -26,8 +29,9 @@
             Last updated @DateTime.Today.ToString("MMMM yyyy").
         </p>
         <p>
-            All rights reserved with &reg; Uttam Chamling Rai.
+            All rights reserved with &#xA9; Uttam Chamling Rai.
         </p>
     </footer>
 </body>
+
 </html>
