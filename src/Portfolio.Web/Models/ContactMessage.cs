@@ -1,0 +1,12 @@
+namespace Portfolio.Web.Models;
+
+// A message someone sent through the Contact page.
+public class ContactMessages
+{
+    public int Id { get; set; }
+    public string Name { get; set; } = "";
+    public string Email { get; set; } = "";
+    public string Message { get; set; } = "";
+    public DateTime SentAt { get; set; } = DateTime.UtcNow;
+    public bool IsRead { get; set; }
+}

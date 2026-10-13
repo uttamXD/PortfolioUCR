@@ -3,13 +3,13 @@
 @{
     ViewData["Title"] = "Projects";
 }
-<header class="projects-intro">
+@* <header class="projects-intro">
     <p class="muted">A few things I’ve worked on</p>
     <h1>Projects</h1>
     <p>Projects that have helped me learn and build practical experience.</p>
-</header>
+</header> *@
 
-<section class="project-grid" aria-label="Selected projects">
+@* <section class="project-grid" aria-label="Selected projects">
     <article class="project-card">
         <p class="project-type">01 · Mobile app</p>
         <h2>ToDo app</h2>
@@ -20,19 +20,19 @@
         <ul class="project-tags" aria-label="Technologies">
             <li>Flutter</li>
         </ul>
-    </article>
+    </article> *@
 
-    <article class="project-card">
+@* <article class="project-card">
         <p class="project-type">02 · Web app</p>
         <h2>PDF Generator</h2>
         <p>
             A web app for creating PDFs from forms filled in by the user,
             including forms for government documents.
-        </p>
-        @* Add technology labels here only when you can confirm the tools used. *@
-    </article>
+        </p> *@
+@* Add technology labels here only when you can confirm the tools used. *@
+@* </article> *@
 
-    <article class="project-card">
+@* <article class="project-card">
         <p class="project-type">03 · Integration</p>
         <h2>MAW OTCI Integration</h2>
         <p>
@@ -46,4 +46,29 @@
             <li>Integration</li>
         </ul>
     </article>
-</section>
+</section> *@
+
+<h1>Projects</h1>
+<p>Things I have built, newest first.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Year</th>
+            <th>Project</th>
+            <th class="hide-on-phone">Build with</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var project in Model.Projects)
+        {
+            <tr>
+                <td class="year">@project.Year</td>
+                <td>
+                    <a asp-page="/Projects/Details" asp-route-slug="@project.Slug">@project.Title</a><br />@project.Summary
+                </td>
+                <td class="tech hide-on-phone">@project.TechStack</td>
+            </tr>
+        }
+    </tbody>
+</table>

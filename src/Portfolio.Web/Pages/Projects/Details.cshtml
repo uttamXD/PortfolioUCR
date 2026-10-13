@@ -1,0 +1,21 @@
+@page "/projects/{slug}"
+@model Portfolio.Web.Pages.Projects.DetailsModel
+@{
+    ViewData["title"] = Model.Project.Title;
+    var paragraphs = Model.Project.Body.Replace("\r\n","\n").Split("\n\n");
+}
+
+<p><a asp-page="/Projects/Index"><- All Projects</a></p>
+
+<h1>@Model.Project.Title</h1>
+<p class="muted">@Model.Project.Year - <span class="tech">@Model.Project.TechStack</span></p>
+
+@foreach (var paragraph in paragraphs)
+{
+    <p>@paragraph</p>
+}
+
+@if (!string.IsNullOrEmpty(Model.Project.RepoUrl))
+{
+    <p><a href="@Model.Project.RepoUrl">Source Code</a></p>
+}
