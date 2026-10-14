@@ -17,6 +17,35 @@ namespace Portfolio.Web.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.12");
 
+            modelBuilder.Entity("Portfolio.Web.Models.ContactMessage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("SentAt")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ContactMessages");
+                });
+
             modelBuilder.Entity("Portfolio.Web.Models.Project", b =>
                 {
                     b.Property<int>("Id")
@@ -29,6 +58,9 @@ namespace Portfolio.Web.Migrations
 
                     b.Property<bool>("IsFeatured")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("LiveUrl")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("RepoUrl")
                         .HasColumnType("TEXT");
@@ -69,6 +101,7 @@ namespace Portfolio.Web.Migrations
                             Id = 1,
                             Body = "I built this site to learn C# and .NET after working with AL.\n\nIt uses Razor Pages, Entity Framework Core and SQLite.",
                             IsFeatured = true,
+                            LiveUrl = "http://localhost:5076/Projects",
                             Slug = "this-portfolio",
                             Summary = "This site you are looking at. My first ASP.NET Core project.",
                             TechStack = "C#, Razor Pages, EF Core, SQLite",
@@ -78,43 +111,36 @@ namespace Portfolio.Web.Migrations
                         new
                         {
                             Id = 2,
-                            Body = "First pargraph.\n\nSecond paragraph.",
+                            Body = "A simple task-management app built with Flutter.\n\nIt helped me practise building a useful mobile interface.",
                             IsFeatured = false,
                             Slug = "todo-app",
-                            Summary = "A simple tast app built with Flutter.",
+                            Summary = "A simple test app built with Flutter.",
                             TechStack = "Flutter",
                             Title = "ToDo app",
                             Year = 2023
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Body = "A web app for creating PDFs from forms filled in by the user, including forms for government documents.",
+                            IsFeatured = false,
+                            Slug = "pdf-generator",
+                            Summary = "A web app built with Flutter",
+                            TechStack = "Flutter",
+                            Title = "PDF Generator",
+                            Year = 2024
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Body = "I worked on integrating Business Central and Dynamics NAV with a third-party app, so users could create opportunities that eventually became sales orders.",
+                            IsFeatured = false,
+                            Slug = "maw-otci-integration",
+                            Summary = "A integration project to connect NAV and BC to third party app.",
+                            TechStack = "C/AL, AL",
+                            Title = "MAW OTCI Integration",
+                            Year = 2025
                         });
-                });
-
-            modelBuilder.Entity("Portfolio.Web.Mosels.ContactMessage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("IsRead")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Message")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("SentAt")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ContactMessage");
                 });
 #pragma warning restore 612, 618
         }

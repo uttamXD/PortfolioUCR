@@ -48,8 +48,11 @@
     </article>
 </section> *@
 
+@* <h1>Projects</h1>
+<p>Things I have built, newest first.</p> *@
+<p class="muted">A few things I’ve worked on</p>
 <h1>Projects</h1>
-<p>Things I have built, newest first.</p>
+<p>Projects that have helped me learn and build practical experience.</p>
 
 <table>
     <thead>
@@ -57,6 +60,7 @@
             <th>Year</th>
             <th>Project</th>
             <th class="hide-on-phone">Build with</th>
+            <th>Live URL</th>
         </tr>
     </thead>
     <tbody>
@@ -68,6 +72,12 @@
                     <a asp-page="/Projects/Details" asp-route-slug="@project.Slug">@project.Title</a><br />@project.Summary
                 </td>
                 <td class="tech hide-on-phone">@project.TechStack</td>
+                <td class="url">
+                    @if (!string.IsNullOrEmpty(project.LiveUrl))
+                    {
+                        <a href="@project.LiveUrl">Visit</a>
+                    }
+                </td>
             </tr>
         }
     </tbody>

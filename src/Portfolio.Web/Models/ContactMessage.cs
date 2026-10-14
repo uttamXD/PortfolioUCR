@@ -1,7 +1,7 @@
 namespace Portfolio.Web.Models;
 
 // A message someone sent through the Contact page.
-public class ContactMessages
+public class ContactMessage
 {
     public int Id { get; set; }
     public string Name { get; set; } = "";

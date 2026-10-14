@@ -19,3 +19,7 @@
 {
     <p><a href="@Model.Project.RepoUrl">Source Code</a></p>
 }
+@if (!string.IsNullOrEmpty(Model.Project.LiveUrl))
+{
+    <p><a href="@Model.Project.LiveUrl">Live site</a></p>
+}

@@ -26,6 +26,9 @@ public class Project
     [Url, Display(Name = "Source code link")]
     public string? RepoUrl { get; set; }            // the ? means "this is allowed to be empty"
 
+    [Url, Display(Name = "Live link")]
+    public string? LiveUrl { get; set; }
+
     [Range(2000, 2100)]
     public int Year { get; set; } = DateTime.Today.Year;
 

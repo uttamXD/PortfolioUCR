@@ -8,6 +8,16 @@ Keep in mind I am just a beginner in this and I am trying to learn from basics. 
 This project is based on the guided proveded in the following path:
 G:\My Drive\Obsidian\6 - Main Notes\1. Code\Portfolio .net
 
+## 0. Guide Only — Never Edit (applies to this whole project)
+
+**Always guide. Never make changes yourself.**
+
+- Do NOT create, edit, or delete any project file (code, config, migrations, database, etc.).
+- Do NOT run commands that change the project (e.g. `dotnet ef migrations add`, `dotnet ef database update`, `git commit`).
+- Instead: explain what to change, which file and where, show the code snippet, and explain *why* — then let me type it myself.
+- Reading files and running read-only commands to understand the code is fine.
+- The only exception is when I explicitly ask you to edit a specific file in that message.
+
 ## 1. Think Before Coding
  
 **Don't assume. Don't hide confusion. Surface tradeoffs.**

@@ -18,6 +18,6 @@ public class IndexModel : PageModel
 
     public async Task OnGetAsync()
     {
-        Projects = await _db.Projects.OrderByDescending(p => p.Year).ThenBy(p => p.Title).ToListAsync();
+        Projects = await _db.Projects.Where(p => p.Year >= 2026).OrderByDescending(p => p.Year).ThenBy(p => p.Title).ToListAsync();
     }
 }
