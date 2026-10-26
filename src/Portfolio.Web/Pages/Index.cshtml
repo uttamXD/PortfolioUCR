@@ -1,4 +1,6 @@
 ﻿@page
+@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@using Portfolio.Web.Models
 @model IndexModel
 @{
     ViewData["Title"] = "Home";
@@ -70,3 +72,22 @@
         </li>
     </ul>
 </section>
+
+<h2>Selected projects</h2>
+@if (Model.Featured.Count==0)
+{
+    <p class="muted">Notheng here yet.</p>
+}
+else
+{
+    <ul>
+        @foreach (var project in Model.Featured)
+        {
+            <li>
+                <a asp-page="/Projects/Details" asp-route-slug="@project.Slug">@project.Title</a>
+                - @project.Summary
+            </li>
+        }
+    </ul>
+}
+<p><a asp-page="/Projects/Index">All projects -></a></p>

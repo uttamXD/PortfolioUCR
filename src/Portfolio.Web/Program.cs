@@ -1,3 +1,4 @@
+using Portfolio.Web.Services;
 using Microsoft.EntityFrameworkCore;
 using Portfolio.Web.Data;
 
@@ -8,6 +9,7 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseSqlite(builder.Configuration.GetConnectionString("Default")));
+builder.Services.AddScoped<IProjectService, ProjectService>();
 
 var app = builder.Build();
 
