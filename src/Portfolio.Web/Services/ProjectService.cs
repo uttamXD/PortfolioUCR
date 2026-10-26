@@ -18,9 +18,9 @@ public class ProjectService : IProjectService
     {
         return _db.Projects.OrderByDescending(profile_hook_info => profile_hook_info.Year).ThenBy(p => p.Title).ToListAsync();
     }
-    public Task<List<Project>> GetFeaturedAsync()
+    public Task<List<Project>> GetFeaturedAsync(int count)
     {
-        return _db.Projects.Where(p => p.IsFeatured).OrderByDescending(p => p.Year).Take(3).ToListAsync();
+        return _db.Projects.Where(p => p.IsFeatured).OrderByDescending(p => p.Year).Take(count).ToListAsync();
     }
     public Task<Project?> GetBySlugAsync(string slug)
     {
@@ -51,5 +51,9 @@ public class ProjectService : IProjectService
             _db.Projects.Remove(project);
             await _db.SaveChangesAsync();
         }
+    }
+    public Task<int> CountAsync()
+    {
+        return _db.Projects.CountAsync();
     }
 }

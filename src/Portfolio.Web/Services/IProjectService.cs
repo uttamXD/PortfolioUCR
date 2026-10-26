@@ -6,9 +6,10 @@ namespace Portfolio.Web.Services;
 public interface IProjectService
 {
     Task<List<Project>> GetAllAsync();
-    Task<List<Project>> GetFeaturedAsync();
+    Task<List<Project>> GetFeaturedAsync(int count);
     Task<Project?> GetBySlugAsync(string slug);
     Task<Project?> GetByIdAsync(int id);
     Task SaveAsync(Project project);
     Task DeleteAsync(int id);
+    Task<int> CountAsync();
 }

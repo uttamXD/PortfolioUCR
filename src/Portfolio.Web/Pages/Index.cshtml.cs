@@ -15,6 +15,6 @@ public class IndexModel : PageModel
     public List<Project> Featured {get; set;} = new();
     public async Task OnGetAsync()
     {
-        Featured = await _projects.GetFeaturedAsync();
+        Featured = await _projects.GetFeaturedAsync(3);
     }
 }

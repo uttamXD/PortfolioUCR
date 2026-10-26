@@ -19,10 +19,11 @@ public class IndexModel : PageModel
     }
 
     public List<Project> Projects { get; set; } = new();
-
+    public int ProjectCount { get; set; }
     public async Task OnGetAsync()
     {
         // Projects = await _db.Projects.Where(p => p.Year >= 2026).OrderByDescending(p => p.Year).ThenBy(p => p.Title).ToListAsync();
         Projects = await _projects.GetAllAsync();
+        ProjectCount = await _projects.CountAsync();
     }
 }
