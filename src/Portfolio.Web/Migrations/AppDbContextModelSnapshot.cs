@@ -41,6 +41,9 @@ namespace Portfolio.Web.Migrations
                     b.Property<DateTime>("SentAt")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Subject")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.ToTable("ContactMessages");
