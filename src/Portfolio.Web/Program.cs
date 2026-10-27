@@ -10,6 +10,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseSqlite(builder.Configuration.GetConnectionString("Default")));
 builder.Services.AddScoped<IProjectService, ProjectService>();
+builder.Services.AddScoped<IcontactService, ContactService>();
 
 var app = builder.Build();
 

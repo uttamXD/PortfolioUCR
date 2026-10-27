@@ -1,9 +1,10 @@
 @page
-@model IndexModel
+@* @model IndexModel *@
+@model ContactModel
 @{
-    ViewData[index: "Title"] = "Contacts";
+    ViewData[index: "Title"] = "Contact";
 }
-<header class="contact-intro">
+@* <header class="contact-intro">
     <p class="muted">Have a question or want to connect?</p>
     <h1>Contact me</h1>
     <p>Find me on these platforms:</p>
@@ -21,7 +22,6 @@
     </li>
     <li>
         <a href="https://www.facebook.com/Chamling.D.Uttam.9/">
-            @* <img class="contact-icon" src="https://cdn.simpleicons.org/facebook/0866FF" alt="" /> *@
             <i class="fa fa-facebook" aria-hidden="true"></i>
             <span class="contact-copy">
                 <strong>Facebook</strong>
@@ -31,7 +31,6 @@
     </li>
     <li>
         <a href="https://www.instagram.com/uttam_rai88/">
-            @* <img class="contact-icon" src="https://cdn.simpleicons.org/instagram/E4405F" alt="" /> *@
             <i class="fa fa-instagram" aria-hidden="true"></i>
             <span class="contact-copy">
                 <strong>Instagram</strong>
@@ -41,7 +40,6 @@
     </li>
     <li>
         <a href="https://github.com/uttamXD">
-            @* <img class="contact-icon" src="https://cdn.simpleicons.org/github/181717" alt="" /> *@
             <i class="fa fa-github" aria-hidden="true"></i>
             <span class="contact-copy">
                 <strong>GitHub</strong>
@@ -49,4 +47,35 @@
             </span>
         </a>
     </li>
-</ul>
+</ul> *@
+
+<h1>Contact</h1>
+
+@if (Model.SentMessage != null)
+{
+    <p class="notice">@Model.SentMessage</p>
+}
+
+<p>The quickest way to reach me. I read every message.</p>
+
+<form method="post">
+    <label asp-for="Input.Name">Your Name</label>
+    <input asp-for="Input.Name" />
+    <span asp-validation-for="Input.Name" class="field-error"></span>
+
+    <label asp-for="Input.Email">Your email</label>
+    <input asp-for="Input.Email" />
+    <span asp-validation-for="Input.Email" class="field-error"></span>
+
+    <label asp-for="Input.Subject">Subject</label>
+    <input asp-for="Input.Subject" />
+    <span asp-validation-for="Input.Subject" class="field-error"></span>
+
+    <label asp-for="Input.Message">Message</label>
+    <textarea asp-for="Input.Message"></textarea>
+    <span asp-validation-for="Input.Message" class="field-error"></span>
+
+    <input asp-for="Input.Website" style="display:none" autocomplete="off" tabindex="-1" />
+    
+    <button type="submit">Send</button>
+</form>
