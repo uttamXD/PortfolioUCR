@@ -8,9 +8,9 @@ namespace Portfolio.Web.Pages;
 
 public class ContactModel : PageModel
 {
-    private readonly IcontactService _contact;
+    private readonly IContactService _contact;
 
-    public ContactModel(IcontactService contact)
+    public ContactModel(IContactService contact)
     {
         _contact = contact;
     }

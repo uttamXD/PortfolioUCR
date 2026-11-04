@@ -1,0 +1,18 @@
+@page
+@model Portfolio.Web.Pages.Account.LoginModel
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<h1>Log in</h1>
+
+@if (Model.Error != null)
+{
+    <p class="field-error">@Model.Error</p>
+}
+
+<form method="post">
+    <label asp-for="Password">Password</label>
+    <input asp-for="Password" type="password"/>
+    <button type="submit">Log in</button>
+</form>

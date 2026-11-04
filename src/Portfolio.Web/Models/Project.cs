@@ -1,5 +1,4 @@
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.SignalR;
 
 namespace Portfolio.Web.Models;
 

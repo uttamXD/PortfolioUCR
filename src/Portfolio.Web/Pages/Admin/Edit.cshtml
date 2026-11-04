@@ -1,0 +1,48 @@
+@page "{id:int?}"
+@model Portfolio.Web.Pages.Admin.EditModel
+@{
+    ViewData["Title"] = Model.Project.Id == 0 ? "New project" : "Edit project";
+}
+
+<p><a asp-page="/Admin/Index">Back to admin</a></p>
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+    <input type="hidden" asp-for="Project.Id" />
+
+    <label asp-for="Project.Title"></label>
+    <input asp-for="Project.Title" />
+    <span asp-validation-for="Project.Title" class="field-error"></span>
+
+    <label asp-for="Project.Slug">Slug (the web address, e.g. "my-first-api")</label>
+    <input asp-for="Project.Slug" />
+    <span asp-validation-for="Project.Slug" class="field-error"></span>
+
+    <label asp-for="Project.Summary"></label>
+    <input asp-for="Project.Summary" />
+    <span asp-validation-for="Project.Summary" class="field-error"></span>
+
+    <label asp-for="Project.Body">Write-up (leave as empty line between paragraphs)</label>
+    <textarea asp-for="Project.Body"></textarea>
+    <span asp-validation-for="Project.Body" class="field-error"></span>
+
+    <label asp-for="Project.TechStack"></label>
+    <input asp-for="Project.TechStack" />
+    <span asp-validation-for="Project.TechStack" class="field-error"></span>
+
+    <label asp-for="Project.RepoUrl"></label>
+    <input asp-for="Project.RepoUrl" />
+    <span asp-validation-for="Project.RepoUrl" class="field-error"></span>
+
+    <label asp-for="Project.Year"></label>
+    <input asp-for="Project.Year" />
+    <span asp-validation-for="Project.Year" class="field-error"></span>
+
+    <label>
+        <input asp-for="Project.IsFeatured" />
+        @Html.DisplayNameFor(m => m.Project.IsFeatured)
+    </label>
+
+    <button type="submit">Save</button>
+</form>

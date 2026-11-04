@@ -24,7 +24,11 @@
     </main>
 
     <footer class="site-footer">
-        <p>
+        @if (User.Identity?.IsAuthenticated == true)
+            {
+                <p><a asp-page="/Admin/Index">Admin</a></P>
+            }
+            <p>
             Written by hand in C# and Razor Pages while learning .NET.
             Last updated @DateTime.Today.ToString("MMMM yyyy").
         </p>
