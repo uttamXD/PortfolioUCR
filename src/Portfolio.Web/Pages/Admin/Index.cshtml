@@ -1,0 +1,57 @@
+@page
+@using Portfolio.Web.Models
+@model Portfolio.Web.Pages.Admin.IndexModel
+@{
+    ViewData["Title"] = "Admin";
+}
+
+<h1>Admin</h1>
+
+<form method="post" asp-page-handler="Logout">
+    <button type="submit" class="link">Log Out</button>
+</form>
+
+<h2>Projects</h2>
+<p><a asp-page="/Admin/Edit">+ Add a project?</a></p>
+
+<table>
+    @foreach (var project in Model.Projects)
+    {
+        <tr>
+            <td class="year">@project.Year</td>
+            <td>@project.Title</td>
+            <td><a asp-page="/Admin/Edit" asp-route-id="@project.Id">Edit</a></td>
+            <td>
+                <form method="post" asp-page-handler="Delete" asp-route-id="@project.Id">
+                    <button type="submit" class="link" onclick="return confirm('Delete @project.Title?')">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+<h2>Messages (@Model.Messages.Count, @Model.Messages.Count(m => !m.IsRead) unread)</h2>
+
+<table>
+    @foreach (var message in Model.Messages)
+    {
+        <tr class="@(message.IsRead ? "" : "unread")">
+            <td>
+                <p>
+                    <strong>@message.Name</strong>
+                    &lt;<a href="mailto:@message.Email">@message.Email</a>&gt;
+                    <span class="muted">@message.SentAt.ToLocalTime().ToString("d MMM yyyy, HH:mm")</span><br />
+                    @message.Message
+                </p>
+            </td>
+            <td>
+                @if (!message.IsRead)
+                {
+                    <form method="post" asp-page-handler="Update" asp-route-id="@message.Id">
+                        <button type="submit" class="link">Mark as read</button>
+                    </form>
+                }
+            </td>
+        </tr>
+    }
+</table>
