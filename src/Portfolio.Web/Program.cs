@@ -6,9 +6,6 @@ using Portfolio.Web.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// builder.Services.AddRazorPages();
-
-//Replace the AssRazorPages() line with this:
 builder.Services.AddRazorPages(options =>
 {
     // Every page inside /Pages/Admin needs a logged-in user.

@@ -32,10 +32,10 @@ public class IndexModel : PageModel
         .ToListAsync();
     }
 
-    public async Task OnPostUpdateAsync(int id)
+    public async Task<ActionResult> OnPostUpdateAsync(int id)
     {
         await _allMessages.UpdateAsync(id);
-        // return RedirectToPage();
+        return RedirectToPage();
     }
     // <button asp-page-handler="Delete"> calls this method.
     public async Task<IActionResult> OnPostDeleteAsync(int id)
